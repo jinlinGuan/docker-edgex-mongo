@@ -1,0 +1,83 @@
+[
+  {
+    "responseTime": 800,
+    "ApplicationJsonContentType": "application/json",
+    "TextPlainContentType": "text/plain",
+    "commandGetRequestName": "coordinates",
+    "CommandIdNotExist": "9dc4d2cd-d371-4369-aea1-4bafc09c8d0a",
+    "DeviceIdNotExist": "f97b5f0a-ec32-4e96-bd36-02210af16f8c",
+    "CommandNameNotExist" : "CommandNameNotExist",
+    "objectSchema": {
+      "type": "object",
+      "$schema": "http://json-schema.org/draft-03/schema#",
+      "title": "command",
+      "properties": {
+        "id": {
+          "type": "string",
+          "required": false,
+          "title": "id"
+        },
+        "created": {
+          "type": "integer",
+          "required": false,
+          "title": "created"
+        },
+        "modified": {
+          "type": "integer",
+          "required": false,
+          "title": "modified"
+        },
+        "origin": {
+          "type": "integer",
+          "required": false,
+          "title": "origin"
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "title": "name"
+        },
+        "get": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "required": false,
+              "title": "path"
+            },
+            "response": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "required": false,
+                  "title": "code"
+                },
+                "errorDescription": {
+                  "type": "string",
+                  "required": false,
+                  "title": "errorDescription"
+                },
+                "expectedValues": {
+                  "type": "string",
+                  "required": false,
+                  "title": "expectedValues"
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "required": false,
+              "title": "path"
+            }
+          }
+        }
+      }
+    }
+  }
+]

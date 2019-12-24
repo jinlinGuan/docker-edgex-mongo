@@ -1,0 +1,83 @@
+[
+  {
+    "responseTime": 800,
+    "ApplicationJsonContentType": "application/json",
+    "TextPlainContentType": "text/plain",
+    "provisionWatcherGetRequestName": "modbus watcher",
+    "identifierKey": "MAC",
+    "identifierValue": "00-05-1B-C1-99-99",
+    "provisionWatcherGetByProfileRequestName": "variable speed motor profile",
+    "provisionWatcherGetByServiceRequestName": "home variable speed motor device service",
+    "provisionWatcherDelRequestName": "lonworks watcher",
+    "invalidProfileId": "1234657898sdssdw",
+    "invalidProvisionWatcherId": "invalid_id",
+    "invalidProvisionWatcherName": "invalid_name",
+    "invalidServiceId": "1234657898sdssdw",
+    "invalidServiceName": "1234657898sdssdw",
+    "invalidProfileName": "3:15 am daily",
+    "provisionWatcherSchema": {
+      "type": "array",
+      "$schema": "http://json-schema.org/draft-03/schema#",
+      "title": "provisionwatcher",
+      "properties": {
+        "id": {
+          "type": "string",
+          "required": false,
+          "title": "id"
+        },
+        "created": {
+          "type": "integer",
+          "required": false,
+          "title": "created"
+        },
+        "modified": {
+          "type": "integer",
+          "required": false,
+          "title": "modified"
+        },
+        "origin": {
+          "type": "integer",
+          "required": false,
+          "title": "origin"
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "title": "name"
+        }
+      }
+    },
+    "provisionWatcherObjectSchema": {
+      "type": "object",
+      "$schema": "http://json-schema.org/draft-03/schema#",
+      "title": "provisionwatcher",
+      "properties": {
+        "id": {
+          "type": "string",
+          "required": false,
+          "title": "id"
+        },
+        "created": {
+          "type": "integer",
+          "required": false,
+          "title": "created"
+        },
+        "modified": {
+          "type": "integer",
+          "required": false,
+          "title": "modified"
+        },
+        "origin": {
+          "type": "integer",
+          "required": false,
+          "title": "origin"
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "title": "name"
+        }
+      }
+    }
+  }
+]
