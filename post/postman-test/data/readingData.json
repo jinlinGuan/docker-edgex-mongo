@@ -1,0 +1,103 @@
+[
+  {
+    "responseTime": 800,
+    "ApplicationJsonContentType": "application/json",
+    "TextPlainContentType": "text/plain",
+    "readingPutRequestId": "57e866d5e4b0ca8e6d73a3c3",
+    "readingValueDescriptorName": "temperature",
+    "readingValueDescriptorUom": "ohm",
+    "readingValueDescriptorLabel": "temp",
+    "readingValueDescriptorType": "F",
+    "deviceGetRequestId": "variableSpeedMotor",
+    "invalidId": "57e866d4e4b0ca8e6d73a412",
+    "start": "1464039919104",
+    "end": "1464039919109",
+    "limit": 100,
+    "schema": {
+      "type": "array",
+      "$schema": "http://json-schema.org/draft-03/schema#",
+      "description": "EdgeX Core device/sensor reading",
+      "title": "reading",
+      "properties": {
+        "id": {
+          "type": "string",
+          "required": false,
+          "title": "id"
+        },
+        "created": {
+          "type": "integer",
+          "required": false,
+          "title": "created"
+        },
+        "modified": {
+          "type": "integer",
+          "required": false,
+          "title": "modified"
+        },
+        "origin": {
+          "type": "integer",
+          "required": false,
+          "title": "origin"
+        },
+        "pushed": {
+          "type": "integer",
+          "required": false,
+          "title": "pushed"
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "title": "name"
+        },
+        "value": {
+          "type": "string",
+          "required": false,
+          "title": "value"
+        }
+      }
+    },
+    "objectSchema": {
+      "type": "object",
+      "$schema": "http://json-schema.org/draft-03/schema#",
+      "description": "EdgeX Core device/sensor reading",
+      "title": "reading",
+      "properties": {
+        "id": {
+          "type": "string",
+          "required": false,
+          "title": "id"
+        },
+        "created": {
+          "type": "integer",
+          "required": false,
+          "title": "created"
+        },
+        "modified": {
+          "type": "integer",
+          "required": false,
+          "title": "modified"
+        },
+        "origin": {
+          "type": "integer",
+          "required": false,
+          "title": "origin"
+        },
+        "pushed": {
+          "type": "integer",
+          "required": false,
+          "title": "pushed"
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "title": "name"
+        },
+        "value": {
+          "type": "string",
+          "required": false,
+          "title": "value"
+        }
+      }
+    }
+  }
+]

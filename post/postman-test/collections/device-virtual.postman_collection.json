@@ -1,0 +1,689 @@
+{
+	"info": {
+		"_postman_id": "ad787b2f-5ae3-43c3-b2ab-12b92fb92f7b",
+		"name": "device-virtual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test whether the virtual device service exists",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1f808869-61ab-448a-8024-0b3f1541d55f",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "178d8c99-50ee-46d2-89e6-9edf244a02c5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response body is correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1.1.0\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{virtualDeviceServiceHost}}{{virtualDeviceServicePort}}/api/v1/ping",
+					"host": [
+						"{{virtualDeviceServiceHost}}{{virtualDeviceServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ping"
+					]
+				},
+				"description": "Check if the virtual device service is registered to the metadata service"
+			},
+			"response": []
+		},
+		{
+			"name": "Test whether the Random-Boolean-Device device profile has been added to metadata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03606eca-b883-4d4e-858c-b9cfe9bf3d63",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Validate device profile name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name===\"Random-Boolean-Device\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}/api/v1/deviceprofile/name/Random-Boolean-Device",
+					"host": [
+						"{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"deviceprofile",
+						"name",
+						"Random-Boolean-Device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test whether the Random-Integer-Device device profile has been added to metadata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03606eca-b883-4d4e-858c-b9cfe9bf3d63",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Validate device profile name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name===\"Random-Integer-Device\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}/api/v1/deviceprofile/name/Random-Integer-Device",
+					"host": [
+						"{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"deviceprofile",
+						"name",
+						"Random-Integer-Device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test whether the Random-UnsignedInteger-Device device profile has been added to metadata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03606eca-b883-4d4e-858c-b9cfe9bf3d63",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Validate device profile name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name===\"Random-UnsignedInteger-Device\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}/api/v1/deviceprofile/name/Random-UnsignedInteger-Device",
+					"host": [
+						"{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"deviceprofile",
+						"name",
+						"Random-UnsignedInteger-Device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test whether the Random-Float-Device device profile has been added to metadata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03606eca-b883-4d4e-858c-b9cfe9bf3d63",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Validate device profile name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name===\"Random-Float-Device\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}/api/v1/deviceprofile/name/Random-Float-Device",
+					"host": [
+						"{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"deviceprofile",
+						"name",
+						"Random-Float-Device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test whether the pre-defined Random-Boolean-Device device in metadata exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0bb54c52-1bbc-43e1-bbdf-a45ec60478d4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Validate device name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name===\"Random-Boolean-Device\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}/api/v1/device/name/Random-Boolean-Device",
+					"host": [
+						"{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"name",
+						"Random-Boolean-Device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test whether the pre-defined Random-Integer-Device device in metadata exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0bb54c52-1bbc-43e1-bbdf-a45ec60478d4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Validate device name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name===\"Random-Integer-Device\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}/api/v1/device/name/Random-Integer-Device",
+					"host": [
+						"{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"name",
+						"Random-Integer-Device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test whether the pre-defined Random-UnsignedInteger-Device device in metadata exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0bb54c52-1bbc-43e1-bbdf-a45ec60478d4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Validate device name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name===\"Random-UnsignedInteger-Device\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}/api/v1/device/name/Random-UnsignedInteger-Device",
+					"host": [
+						"{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"name",
+						"Random-UnsignedInteger-Device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test whether the pre-defined Random-Float-Device device in metadata exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0bb54c52-1bbc-43e1-bbdf-a45ec60478d4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Validate device name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name===\"Random-Float-Device\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}/api/v1/device/name/Random-Float-Device",
+					"host": [
+						"{{coreMetaDataServiceHost}}{{coreMetadataServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"name",
+						"Random-Float-Device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test the put value method",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1948aee-b677-4d57-9d74-4e8a1230ad66",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Int8\":\"66\"}"
+				},
+				"url": {
+					"raw": "{{virtualDeviceServiceHost}}{{virtualDeviceServicePort}}/api/v1/device/name/Random-Integer-Device/Int8",
+					"host": [
+						"{{virtualDeviceServiceHost}}{{virtualDeviceServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"name",
+						"Random-Integer-Device",
+						"Int8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test the get value method",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce37f2b8-42b5-4f45-b4ba-648483b5ee60",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function(){",
+							"    var contentType = postman.getResponseHeader(\"Content-Type\");",
+							"    pm.expect(contentType).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json; ",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Expected value is 66\", function () {",
+							"     pm.expect(jsonData.readings[0].value===\"66\").to.be.true; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{virtualDeviceServiceHost}}{{virtualDeviceServicePort}}/api/v1/device/name/Random-Integer-Device/Int8",
+					"host": [
+						"{{virtualDeviceServiceHost}}{{virtualDeviceServicePort}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"name",
+						"Random-Integer-Device",
+						"Int8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
